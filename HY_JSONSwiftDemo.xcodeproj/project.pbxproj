@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6855E1C81EA8B12E00E780B3 /* HY_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855E1C71EA8B12E00E780B3 /* HY_Model.swift */; };
 		68F60C7F1EA49FF3009D33CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F60C7E1EA49FF3009D33CF /* AppDelegate.swift */; };
 		68F60C811EA49FF3009D33CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F60C801EA49FF3009D33CF /* ViewController.swift */; };
 		68F60C841EA49FF3009D33CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F60C821EA49FF3009D33CF /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6855E1C71EA8B12E00E780B3 /* HY_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HY_Model.swift; sourceTree = "<group>"; };
 		68F60C7B1EA49FF3009D33CF /* HY_JSONSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HY_JSONSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F60C7E1EA49FF3009D33CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68F60C801EA49FF3009D33CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681BE7521EA9D14D007890D1 /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+				681BE7531EA9D187007890D1 /* View */,
+				681BE7541EA9D196007890D1 /* Model */,
+				681BE7551EA9D1A3007890D1 /* Controller */,
+			);
+			name = Actor;
+			sourceTree = "<group>";
+		};
+		681BE7531EA9D187007890D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				68F60C901EA4C989009D33CF /* HY_CustomTableViewCell.swift */,
+				68F60C821EA49FF3009D33CF /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		681BE7541EA9D196007890D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6855E1C71EA8B12E00E780B3 /* HY_Model.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		681BE7551EA9D1A3007890D1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				68F60C801EA49FF3009D33CF /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		68F60C721EA49FF3009D33CF = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				68F60C7E1EA49FF3009D33CF /* AppDelegate.swift */,
-				68F60C801EA49FF3009D33CF /* ViewController.swift */,
-				68F60C901EA4C989009D33CF /* HY_CustomTableViewCell.swift */,
-				68F60C821EA49FF3009D33CF /* Main.storyboard */,
+				681BE7521EA9D14D007890D1 /* Actor */,
 				68F60C851EA49FF3009D33CF /* Assets.xcassets */,
 				68F60C871EA49FF3009D33CF /* LaunchScreen.storyboard */,
 				68F60C8A1EA49FF3009D33CF /* Info.plist */,
@@ -141,6 +176,7 @@
 			files = (
 				68F60C911EA4C989009D33CF /* HY_CustomTableViewCell.swift in Sources */,
 				68F60C811EA49FF3009D33CF /* ViewController.swift in Sources */,
+				6855E1C81EA8B12E00E780B3 /* HY_Model.swift in Sources */,
 				68F60C7F1EA49FF3009D33CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +337,7 @@
 				68F60C8F1EA49FF3009D33CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

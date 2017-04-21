@@ -12,10 +12,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var hy_tableView: UITableView!
     
-    var hy_nameArray = [String]()
-    var hy_dobArray  = [String]()
-    var hy_imgURLArray  = [String]()
-    
+    var actorsArray =  [HY_Actor]()
     
     
     let hy_urlstring = "http://microblogging.wingnity.com/JSONParsingTutorial/jsonActors"
@@ -38,26 +35,44 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             if let hy_jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as?NSDictionary{
                 
-                print(hy_jsonObj!.value(forKey: "actors"))
+                //print(hy_jsonObj!.value(forKey: "actors"))
                 if let temp_actorArray = hy_jsonObj?.value(forKey: "actors") as? NSArray
                 {
                     for actor in temp_actorArray
                     {
                         if let actorDict = actor as?NSDictionary
                         {
-                            if let name = actorDict.value(forKey: "name")
-                            {
-                                self.hy_nameArray.append(name as!String)
-                            }
-                            if let name = actorDict.value(forKey: "dob")
-                            {
-                                self.hy_dobArray.append(name as!String)
-                            }
-                            if let name = actorDict.value(forKey: "image")
-                            {
-                                self.hy_imgURLArray.append(name as!String)
-                            }
                             
+                            let nameStr: String = {
+                                if let name = actorDict.value(forKey: "name")
+                                {
+                                    return name as! String
+                                }
+
+                                return "Dumy Name"
+                            }()
+                            
+                            
+                            let dobStr:String = {
+                            
+                                if let dob = actorDict.value(forKey: "dob")
+                                {
+                                return dob as! String
+                                }
+                                return "dumy DOB"
+                            }()
+                                
+                            let imgstr:String = {
+                                
+                                if let img = actorDict.value(forKey: "image")
+                                {
+                                    return img as! String
+                                }
+                                return "dumy image"
+                                }()
+                            
+
+                            self.actorsArray.append(HY_Actor(name: nameStr, dob:dobStr, img: imgstr))
                             OperationQueue.main.addOperation({
                                 self.hy_tableView.reloadData()
                             })
@@ -72,7 +87,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return hy_nameArray.count
+        return actorsArray.count
     }
     
     
@@ -83,9 +98,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as!HY_CustomTableViewCell
         
-        cell.hy_nameLable.text = hy_nameArray[indexPath.row]
-        cell.hy_dobLable.text = hy_dobArray[indexPath.row]
-        let tamp_imgURL = NSURL(string:hy_imgURLArray[indexPath.row])
+        let actor = actorsArray[indexPath.row]
+        
+        cell.hy_nameLable.text = actor.name
+        cell.hy_dobLable.text = actor.dob
+        let tamp_imgURL = NSURL(string:actor.imageStr)
         
         if tamp_imgURL != nil
         {
